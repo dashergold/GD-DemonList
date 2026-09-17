@@ -17,12 +17,24 @@ async function renderLevelsTable() {
             '<td><a href="' + detailUrl + '">' + level.name + '</a></td>' +
             '<td>' + level.publisher + '</td>' +
             '<td>' + level.verifier + '</td>' +
-            '<td><a href="'+'https://www.youtube.com/watch?v='+level.videoId+'" target="_blank">Verification</a> </td>' +
+            '<td>' + buildThumbLink(level.videoId, level.name + ' completion') + '</td>' +
             '</tr>'
         );
     }).join("");
 
     wireUpClickableRows();
+}
+
+//https://youtu.be/
+//https://i.ytimg.com/vi/XXXXXX/mqdefault.jpg)
+
+function buildThumbLink(videoId, label) {
+  const thumbUrl = 'https://i.ytimg.com/vi/' + videoId + '/mqdefault.jpg';
+  const videoUrl = 'https://www.youtube.com/watch?v=' + videoId;
+  return (
+    '<a class="thumb ratio-16-9" href="' + videoUrl + '" target="_blank" rel="noopener" ' +
+    'style="background-image:url(&quot;' + thumbUrl + '&quot;)" aria-label="Watch ' + label + '"></a>'
+  );
 }
 //when user clicks on a row in the table it refers them to the deisngated levels info page. if user clicks on a real link inside it refers to the clicked link instead.
 function wireUpClickableRows() {

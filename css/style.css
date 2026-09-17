@@ -39,3 +39,21 @@ tbody tr:hover {
 .clickable-row {
     cursor: pointer;
 }
+
+
+
+
+.thumb {
+  display: block;
+  width: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border);
+  /*border-radius: 6px;*/
+  position: relative;
+  overflow: hidden;
+}
+.thumb.ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
