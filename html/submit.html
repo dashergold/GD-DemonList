@@ -23,7 +23,51 @@
         </nav>
     </header>
     <main>
+        <section>
+            <h2>Submit a Record</h2>
+            <p>
+                Beaten a level you're proud of? Submit your name, the level completed, a link to a video displaying the raw completion, as well as country.
+                If you completed the level on a Start Position copy, please submit the ID to the level as well.
+            </p>
+            <form id="completion-form">
+                <fieldset>
+                    <label for="player-name">Your name</label>
+                    <input type="text" id="player-name" name="player-name" placeholder="e.g. Player" required>
+                </fieldset>
 
+                <fieldset>
+                    <label for="level-completed">Level completed</label>
+                    <input type="text" id="level-completed" name="level-completed" placeholder="e.g. Stereo Madness" required>
+                </fieldset>
+
+                <fieldset>
+                    <label for="video-link">Video link (YouTube, etc.)</label>
+                    <input type="url" id="video-link" name="video-link" placeholder="https://www.youtube.com/watch?v=..." required>
+                    <p class="hint">Must be a direct link to your raw unedited completion footage.</p>
+                </fieldset>
+
+                <fieldset>
+                    <label for="start-position-id">Start Position ID</label>
+                    <input type="number" id="start-position-id" name="start-position-id" placeholder="e.g. 123456789">
+                </fieldset>
+
+                <fieldset>
+                    <label for="player-country">Country</label>
+                    <input type="text" id="player-country" name="player-country" placeholder="e.g. USA">
+                </fieldset>
+
+                <button type="submit">Submit Completion</button>
+
+                <p id="form-status" role="status"></p>
+            </form>
+        </section>
+
+        <section>
+            <h2>Recent Submissions</h2>
+            <ul>
+                <li>Loading submissions</li>
+            </ul>
+        </section>
     </main>
     <footer>
         <p>The Geometry Dash Demon List is a fan project and not affiliated with RobTop Games.</p>
