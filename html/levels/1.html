@@ -25,14 +25,17 @@
     <!--To be replaced by getters from a database instead of hard coded-->
     <main>
         <section>
-            <h1>SOCIETY</h1> <!--Level title-->
+            <h1 id="title"></h1> <!--Level title-->
             <a href="2.html">></a>
         </section>
         <section>
-            <h3>Published by Neomarbilan, verified by wPopoff</h3> <!--Published by and verified by-->
-            <p>"// Why are you always awake at night? //"</p> <!--in game level description-->
-            <a href="https://youtu.be/3CoEaH1CM7o">youtube video</a> <!--embedded youtube video-->
-            <p>List points upon completion: 10</p>
+            <h3>
+                Published by <span id="publisher"></span>,
+                verified by <span id="verifier"></span>.
+            </h3> <!--Published by and verified by-->
+            <p>"<span id="description"></span>"</p> <!--in game level description-->
+            <a id="youtube-link" href="#">youtube video</a> <!--embedded youtube video-->
+            <p>List points upon completion: <span id="points"></span></p>
         </section>
         <section>
             <h2>Completions</h2>
@@ -54,5 +57,6 @@
     <footer>
         <p>The Geometry Dash Demon List is a fan project and not affiliated with RobTop Games.</p>
     </footer>
+    
 </body>
 </html>
