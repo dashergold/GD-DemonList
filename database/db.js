@@ -12,3 +12,28 @@ function getLevelById(levels, id) {
         return level.id === id;
     });
 }
+
+//for every level every unique player who has completed it earns that levels points value. returns an array of a players name, country and points sorted by points descending.
+function computeLeaderboard(levels) {
+    const totals = {};
+
+    levels.forEach(level => {
+        const completions = level.completions;
+        
+
+        completions.forEach(completion => {
+            const name = completion.name.trim();
+
+            if (!totals[name]) {
+                totals[name] = {name: name, country: completion.country || "-", points: 0};
+            }
+            totals[name].points += level.points;
+            if (!totals[name].country && completion.country) {
+                totals[name].country = completion.country;
+            }
+        });
+    });
+    return Object.values(totals).sort((a,b) => {
+        return b.points - a.points;
+    })
+}

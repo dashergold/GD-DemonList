@@ -25,9 +25,31 @@ async function renderLevelsTable() {
     wireUpClickableRows();
 }
 
+//fetches the levels list, gets the completions for every level and displays the leaderboard sorted in descending order.
+async function renderPlayersTable() {
+    const tbody = document.getElementById("players-body");
+    if (!tbody) {
+        return;
+    }
+    const levels = await fetchLevels();
+    const leaderboard = computeLeaderboard(levels);
+
+    tbody.innerHTML = leaderboard
+    .map(function (player, index) {
+      return (
+        '<tr>' +
+        '<td class="rank-cell">' + (index + 1) + '</td>' +
+        '<td>' + player.name + '</td>' +
+        '<td>' + (player.country || '&mdash;') + '</td>' +
+        '<td>' + player.points + '</td>' +
+        '</tr>'
+      );
+    }).join('');
+}
+
 //https://youtu.be/
 //https://i.ytimg.com/vi/XXXXXX/mqdefault.jpg)
-
+//gets the youtube link, grabs its thumbnail and displays it as an image, that when clicked on redirects to the youtube link
 function buildThumbLink(videoId, label) {
   const thumbUrl = 'https://i.ytimg.com/vi/' + videoId + '/mqdefault.jpg';
   const videoUrl = 'https://www.youtube.com/watch?v=' + videoId;
@@ -53,6 +75,7 @@ function wireUpClickableRows() {
 //loads the javascript 
 async function init() {
     await renderLevelsTable();
+    await renderPlayersTable();
 
 }
 document.addEventListener("DOMContentLoaded", init);
