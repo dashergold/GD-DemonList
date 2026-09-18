@@ -5,19 +5,6 @@ function getRequestedLevelId() {
     return params.get("id");
 }
 
-//sorts by ascending order, finds the current level in the order, fetches the next level by ranking and returns the data for the next level.
-//used ai for the search algorithm 
-function getNextLevel(levels, currentLevel) {
-    const sorted = levels.slice().sort((a,b) => {
-        return a.rank - b.rank;
-    });
-    const currentIndex = sorted.findIndex(level => {
-        return level.id === currentLevel.id;
-    });
-    const nextIndex = (currentIndex +1) % sorted.length;
-    return sorted[nextIndex];
-}
-
 
 //renders all the information about the currently selected level on the screen
 function renderLevel(level, allLevels) {
@@ -29,12 +16,59 @@ function renderLevel(level, allLevels) {
     document.getElementById("points").textContent = level.points;
     document.getElementById("youtube-link").innerHTML = '<a href="'+level.videoId+'">VERIFICATION</a>'
 
+    const previousLevel = getPreviousLevel(allLevels, level);
     const nextLevel = getNextLevel(allLevels, level);
+    const previousLink = document.getElementById("previous-level");
     const nextLink = document.getElementById("next-level");
-    nextLink.href = "level.html?id="+nextLevel.id;
-    nextLink.textContent = "#"+nextLevel.rank + " " + nextLevel.name + " >";
 
+    if(nextLevel) {
+        nextLink.href = "level.html?id="+nextLevel.id;
+        nextLink.textContent = "#" + nextLevel.rank+ " " + nextLevel.name + " >";
+        nextLink.style.display = "";
+    }
+    else {
+        nextLink.style.display = "none";
+    }
+
+    if(previousLevel) {
+        previousLink.href = "level.html?id=" + previousLevel.id;
+        previousLink.textContent = "< #"+previousLevel.rank + " "+ previousLevel.name;
+        previousLink.style.display = "";
+    }
+    else {
+        previousLink.style.display = "none";
+    }
     renderVictorsTable(level);
+}
+
+//sorts by ascending order, finds the current level in the order, fetches the next level by ranking and returns the data for the next level.
+//used ai for the search algorithm 
+function getNextLevel(levels, currentLevel) {
+    const sorted = levels.slice().sort((a,b) => {
+        return a.rank - b.rank;
+    });
+    const currentIndex = sorted.findIndex(level => {
+        return level.id === currentLevel.id;
+    });
+    if(currentIndex === sorted.length -1) {
+        return null;
+    }
+    return sorted[currentIndex +1 ];
+}
+
+//sorts by acscending order, finds the current level in the order, fetches the porevious level and returns the data for it.
+//also used ai for this algorithm
+function getPreviousLevel(levels, currentLevel) {
+    const sorted = levels.slice().sort((a, b) => {
+        return a.rank - b.rank;
+    });
+    const currentIndex = sorted.findIndex(level => {
+        return level.id === currentLevel.id;
+    });
+    if(currentIndex === 0) {
+        return null;
+    } 
+    return sorted[currentIndex -1];
 }
 
 //renders the table for the victors, and separated a victor from the verifier with a check mark
