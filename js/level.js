@@ -33,8 +33,28 @@ function renderLevel(level, allLevels) {
     const nextLink = document.getElementById("next-level");
     nextLink.href = "level.html?id="+nextLevel.id;
     nextLink.textContent = "#"+nextLevel.rank + " " + nextLevel.name + " >";
+
+    renderVictorsTable(level);
 }
 
+//renders the table for the victors, and separated a victor from the verifier with a check mark
+function renderVictorsTable(level) {
+    const tbody = document.getElementById("completions-body");
+    const completions = level.completions;
+
+    tbody.innerHTML = completions
+    .map(function (completion, index) {
+      return (
+        '<tr>' +
+        '<td>' + (index + 1) + '</td>' +
+        '<td>' + completion.name + (completion.role === 'Verifier' ? ' ✓' : '') + '</td>' +
+        '<td>' + (completion.country || '&mdash;') + '</td>' +
+        '<td>' + completion.date + '</td>' +
+        '</tr>'
+      );
+    })
+    .join('');
+}
 
 
 //loads the javascript. gets the levels, gets the requested id, if the requested id exists, get the level info for the id, otherwise get the first level by id.
