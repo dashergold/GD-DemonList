@@ -5,3 +5,10 @@ async function fetchLevels() {
     }
     return LEVELS_DATA;
 }
+
+//returns a level by its id in levels
+function getLevelById(levels, id) {
+    return levels.find(level => {
+        return level.id === id;
+    });
+}
