@@ -58,7 +58,7 @@ async function renderRecentSubmissions() {
     const entries = [];
     levels.forEach(level => {
         (completions[level.id] ||[]).forEach(completion => {
-            entries.push(Object.assign({levelName: level.name, completion}));
+            entries.push(Object.assign({levelName: level.name}, completion));
         });
     });
     if(entries.length === 0) {
