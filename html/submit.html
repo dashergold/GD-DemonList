@@ -37,7 +37,9 @@
 
                 <fieldset>
                     <label for="level-completed">Level completed</label>
-                    <input type="text" id="level-completed" name="level-completed" placeholder="e.g. Stereo Madness" required>
+                    <select id="level-completed" name="level-completed" required>
+                        <option value="" disabled selected>Loading levels...</option>
+                    </select>
                 </fieldset>
 
                 <fieldset>
@@ -64,13 +66,16 @@
 
         <section>
             <h2>Recent Submissions</h2>
-            <ul>
-                <li>Loading submissions</li>
+            <ul id="submission-list">
+                <li>Loading submissions...</li>
             </ul>
         </section>
     </main>
     <footer>
         <p>The Geometry Dash Demon List is a fan project and not affiliated with RobTop Games.</p>
     </footer>
+    <script src="../database/levels.js"></script>
+    <script src="../database/db.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

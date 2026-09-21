@@ -1,3 +1,5 @@
+const COMPLETIONS_KEY = "gd-completions";
+
 //checks if LEVELS_DATA is undefined, otherwise returns it
 async function fetchLevels() {
     if(typeof LEVELS_DATA === "undefined") {
@@ -5,6 +7,30 @@ async function fetchLevels() {
     }
     return LEVELS_DATA;
 }
+
+//reads all the completions saved in local storage
+function getCompletions() {
+    const raw = window.localStorage.getItem(COMPLETIONS_KEY);
+    if(!raw) {
+        return {};
+    }
+    try {
+        return JSON.parse(raw);
+    } 
+    catch (err) {
+        return {};
+    }
+}
+//saves a completion to local storage
+function saveCompletion(levelId, completion) {
+    const all = getCompletions();
+    if(!all[levelId]) {
+        all[levelId] = [];
+    }
+    all[levelId].push(completion);
+    window.localStorage.setItem(COMPLETIONS_KEY, JSON.stringify(all));
+}
+
 
 //returns a level by its id in levels
 function getLevelById(levels, id) {
