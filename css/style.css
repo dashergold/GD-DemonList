@@ -73,6 +73,31 @@ section {
   margin-bottom: 1.5rem;
 }
 
+/*home page*/
+.cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin:0;
+  padding: 0;
+
+}
+
+.cards li a{
+  display: block;
+  padding: 1.4rem 1rem;
+  background-color: rgba(0, 0, 0, 0.55);
+  border: 1px solid #ff6f00;
+  border-radius: 8px;
+  color: aliceblue;
+}
+.cards li a strong {
+  display: block;
+  font-size: 1.15rem;
+  color:#ff6f00;
+  margin-bottom: 0.4rem;
+}
 
 
 
