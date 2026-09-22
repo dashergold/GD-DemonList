@@ -1,3 +1,82 @@
+@font-face {
+  font-family: "Poppins Black";
+  src: url(../fonts/ttf/Poppins-SemiBold.ttf) format("truetype");
+  font-display: swap;
+}
+
+/*general*/
+html,
+body {
+  margin:0;
+  padding: 0;
+  background-color: #121212;
+  background-image:
+    radial-gradient(ellipse at 20% -10%, rgba(217, 164, 65, 0.10), transparent 55%),
+    radial-gradient(ellipse at 90% 10%, rgba(127, 143, 108, 0.07), transparent 50%),
+    radial-gradient(ellipse at 10% 110%, rgba(168, 92, 63, 0.05), transparent 45%),
+    radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.35) 100%);
+  background-attachment: fixed;
+  color:aliceblue;
+  font-family: "Poppins Black", "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+
+a {
+  color: #ff6f00;
+  text-decoration: none;
+}
+a:hover {
+  color: #FFB277;
+  text-decoration: underline;
+}
+
+/*header + nav*/
+header.site-header {
+  border-bottom: 1px solid rgba(237, 230, 214, 0.14);
+  margin: 2.5rem;
+  margin-top: 1rem;
+}
+header h1 a{
+  color: aliceblue;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  font-size: 0.95rem;
+
+}
+nav a {
+  color: rgba(237, 230, 214, 0.6);
+}
+nav a:hover,
+nav a.active {
+  color: #C16F30;
+
+}
+
+/*main*/
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem 1.5rem;
+}
+
+section {
+  background-color: rgba(0,0,0,0.35);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+
+
+
+/*tables*/
 .table-wrap {
   overflow-x: auto;
   border: 2px solid var(--border);

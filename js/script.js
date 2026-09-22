@@ -1,4 +1,10 @@
-
+function highlightActiveNavLink() {
+    const path = window.location.pathname.split("/").pop() || "home.html";
+    document.querySelectorAll("nav a").forEach(link => {
+        const linkFile = link.getAttribute("href");
+        link.classList.toggle("active", linkFile === path);
+    })
+}
 
 //fetches the level data from levels.js, and builds the table for every level based on the levels data.
 async function renderLevelsTable() {
@@ -169,6 +175,7 @@ function wireUpClickableRows() {
 
 //loads the javascript 
 async function init() {
+    highlightActiveNavLink();
     await renderLevelsTable();
     await renderPlayersTable();
     await initSubmission();
