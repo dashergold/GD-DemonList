@@ -82,7 +82,7 @@ function renderVictorsTable(level) {
         '<tr>' +
         '<td>' + (index + 1) + '</td>' +
         '<td>' + completion.name + (completion.role === 'Verifier' ? ' ✓' : '') + '</td>' +
-        '<td>' + (completion.country || '&mdash;') + '</td>' +
+        '<td>' + (completion.country || '-') + '</td>' +
         '<td>' + completion.date + '</td>' +
         '</tr>'
       );

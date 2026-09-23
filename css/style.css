@@ -4,7 +4,14 @@
   font-display: swap;
 }
 
+
+
 /*general*/
+
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   margin:0;
@@ -92,6 +99,11 @@ section {
   border-radius: 8px;
   color: aliceblue;
 }
+
+.cards li a:hover {
+  border-color: #FFB277;
+  text-decoration: none;
+}
 .cards li a strong {
   display: block;
   font-size: 1.15rem;
@@ -99,12 +111,16 @@ section {
   margin-bottom: 0.4rem;
 }
 
+.cards li a:hover strong{
+  color: #FFB277;
+  text-decoration: none;
+}
 
 
 /*tables*/
 .table-wrap {
   overflow-x: auto;
-  border: 2px solid var(--border);
+  border: 1px solid rgba(237, 230, 214, 0.14);
   border-radius: 8px;
 }
 table {
@@ -115,26 +131,27 @@ table {
 
 caption {
   text-align: left;
-  color: var(--text-dim);
+  color: rgba(237, 230, 214, 0.6);
+  font-family: Arial, Helvetica, sans-serif;
   padding: 0.6rem 0.8rem;
   font-size: 0.85rem;
-  background: var(--bg-alt);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 thead th {
-  background: var(--bg-alt);
-  color: var(--yellow);
+  background: rgba(0, 0, 0, 0.55);
+  color: #C14E30;
   text-align: left;
   padding: 0.8rem 1rem;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid rgba(237, 230, 214, 0.14);
 }
 
 tbody td {
   padding: 0.9rem 1rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(237, 230, 214, 0.14);
   font-size: 0.95rem;
 }
 tbody tr:hover {
