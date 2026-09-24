@@ -36,6 +36,7 @@ section {
   border: 1px solid #ff6f00;
   border-radius: 8px;
   color: aliceblue;
+  transition: transform 0.5s;
 }
 
 .cards li a:hover {
