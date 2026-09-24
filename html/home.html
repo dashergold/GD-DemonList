@@ -10,6 +10,11 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, Geometry Dash, Demon, List, Extreme Demon, Top Play, Ranking">
     <title>Home | Geometry Dash Demon List</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <script defer src="../database/levels.js"></script>
+    <script defer src="../database/db.js"></script>
+    <script defer src="../js/script.js"></script>
+    <script defer src="../js/animations.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -24,7 +29,7 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section class="description hidden">
             <h2>The Toughest Levels in Geometry Dash</h2>
             <p>
                 Explore the current top 10 hardest rated levels in the game, see which
@@ -32,24 +37,24 @@
                 and verifications.
             </p>
         </section>
-        <section>
+        <section class="hidden">
             <h2>Explore the site</h2>
             <ul class="cards">
-                <li>
+                <li class="card hidden">
                 <a href="levels.html">
                     <strong>Hardest Levels</strong>
                     The top 10 most difficult Extreme Demons, with publisher, verifier,
                     and video completion for each.
                 </a>
                 </li>
-                <li>
+                <li class="card hidden">
                 <a href="players.html">
                     <strong>Best Players</strong>
                     A leaderboard of the players who have conquered the hardest levels,
                     ranked by points earned.
                 </a>
                 </li>
-                <li>
+                <li class="card hidden">
                 <a href="submit.html">
                     <strong>Submit a Completion</strong>
                     Beat a level yourself? Submit your name, the level, and a link to
@@ -58,7 +63,7 @@
                 </li>
             </ul>
         </section>
-        <section>
+        <section class="hidden">
             <h2>About this list</h2>
             <p>
                 Rankings are based on opinion, and the community-run
@@ -71,8 +76,6 @@
     <footer>
         <p>The Geometry Dash Demon List is a fan project and not affiliated with RobTop Games.</p>
     </footer>
-    <script src="../database/levels.js"></script>
-    <script src="../database/db.js"></script>
-    <script src="../js/script.js"></script>
+    
 </body>
 </html>
