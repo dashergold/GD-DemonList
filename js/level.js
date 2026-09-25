@@ -5,6 +5,15 @@ function getRequestedLevelId() {
     return params.get("id");
 }
 
+function buildLargeThumb(videoId, label) {
+  const thumbUrl = "https://i.ytimg.com/vi/" + videoId + "/hqdefault.jpg";
+  const videoUrl = "https://www.youtube.com/watch?v=" + videoId;
+  return (
+    '<a class="thumb ratio-16-9 thumb-large" href="' + videoUrl + '" target="_blank" rel="noopener" ' +
+    'style="background-image:url(&quot;' + thumbUrl + '&quot;)" aria-label="Watch ' + label + '"></a>'
+  );
+}
+
 
 //renders all the information about the currently selected level on the screen
 function renderLevel(level, allLevels) {
@@ -14,7 +23,7 @@ function renderLevel(level, allLevels) {
     document.getElementById("verifier").textContent = level.verifier;
     document.getElementById("description").textContent = level.description;
     document.getElementById("points").textContent = level.points;
-    document.getElementById("youtube-link").innerHTML = '<a href="'+level.videoId+'">VERIFICATION</a>'
+    document.getElementById("youtube-link").innerHTML = buildLargeThumb(level.videoId, level.name + " completion");
 
     const previousLevel = getPreviousLevel(allLevels, level);
     const nextLevel = getNextLevel(allLevels, level);
@@ -24,19 +33,19 @@ function renderLevel(level, allLevels) {
     if(nextLevel) {
         nextLink.href = "level.html?id="+nextLevel.id;
         nextLink.textContent = "#" + nextLevel.rank+ " " + nextLevel.name + " >";
-        nextLink.style.display = "";
+        nextLink.style.visibility = "visible";
     }
     else {
-        nextLink.style.display = "none";
+        nextLink.style.visibility = "hidden";
     }
 
     if(previousLevel) {
         previousLink.href = "level.html?id=" + previousLevel.id;
         previousLink.textContent = "< #"+previousLevel.rank + " "+ previousLevel.name;
-        previousLink.style.display = "";
+        previousLink.style.visibility = "visible";
     }
     else {
-        previousLink.style.display = "none";
+        previousLink.style.visibility = "hidden";
     }
     renderVictorsTable(level);
 }

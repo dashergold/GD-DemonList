@@ -150,8 +150,8 @@ async function handleFormSubmit(event) {
 //https://i.ytimg.com/vi/XXXXXX/mqdefault.jpg)
 //gets the youtube link, grabs its thumbnail and displays it as an image, that when clicked on redirects to the youtube link
 function buildThumbLink(videoId, label) {
-  const thumbUrl = 'https://i.ytimg.com/vi/' + videoId + '/mqdefault.jpg';
-  const videoUrl = 'https://www.youtube.com/watch?v=' + videoId;
+  const thumbUrl = "https://i.ytimg.com/vi/" + videoId + "/mqdefault.jpg";
+  const videoUrl = "https://www.youtube.com/watch?v=" + videoId;
   return (
     '<a class="thumb ratio-16-9" href="' + videoUrl + '" target="_blank" rel="noopener" ' +
     'style="background-image:url(&quot;' + thumbUrl + '&quot;)" aria-label="Watch ' + label + '"></a>'

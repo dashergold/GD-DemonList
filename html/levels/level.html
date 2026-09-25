@@ -10,6 +10,7 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, Geometry Dash, Demon, List, Extreme Demon, Top Play, Ranking">
     <title>1 | Geometry Dash Demon List</title>
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/level.css"> 
     <script defer src="../../database/levels.js"></script>
     <script defer src="../../database/db.js"></script>
     <script defer src="../../js/level.js"></script>
@@ -19,7 +20,7 @@
 <body>
      <header class="site-header">
         <h1>
-            <a href="home.html">
+            <a href="../home.html">
                 <span class="full-title">Geometry Dash Demon List</span>
                 <span class="short-title">GDDL</span>
             </a>
@@ -30,10 +31,10 @@
 
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="levels.html">The Demon List</a></li>
-                <li><a href="players.html">Top Players</a></li>
-                <li><a href="submit.html">Submit a Completion</a></li>
+                <li><a href="../home.html">Home</a></li>
+                <li><a href="../levels.html">The Demon List</a></li>
+                <li><a href="../players.html">Top Players</a></li>
+                <li><a href="../submit.html">Submit a Completion</a></li>
             </ul>
         </nav>
     </header>
@@ -41,21 +42,24 @@
     <main>
         <section>
             <h1 id="title"></h1> <!--Level title-->
-            <a id="previous-level" href="#">&lt;</a>
-            <a id="next-level" href="#">&gt;</a>
+            <article class="nav-buttons">
+                <a id="previous-level" href="#">&lt;</a>
+                <a id="next-level" href="#">&gt;</a>
+            </article>
+            
         </section>
         <section>
-            <h3>
+            <p class="level-meta">
                 Published by <span id="publisher"></span>,
                 verified by <span id="verifier"></span>.
-            </h3> <!--Published by and verified by-->
-            <p>"<span id="description"></span>"</p> <!--in game level description-->
+            </p> <!--Published by and verified by-->
+            <h3>"<span id="description"></span>"</h3> <!--in game level description-->
             <a id="youtube-link">youtube video</a> <!--embedded youtube video-->
-            <p>List points upon completion: <span id="points"></span></p>
+            <p>List points upon completion: <span class="points-badge" id="points"></span></p>
         </section>
         <section>
             <h2>Completions</h2>
-            <article>
+            <article class="table-wrap">
                 <table>
                     <caption>Lists the completions in order. ✓ marks the verifier.</caption>
                     <thead>
