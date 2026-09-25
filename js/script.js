@@ -68,18 +68,18 @@ async function renderRecentSubmissions() {
         });
     });
     if(entries.length === 0) {
-        list.innerHTML = '<li> You haven\'t submitted any completions yet.</li>'
+        list.innerHTML = '<li> There are no recent submissions awaiting review.</li>'
         return;
     }
     list.innerHTML = entries.reverse().map(entry => {
-        return ('<li><strong>' + entry.name + '</strong> completed <em>'+entry.levelName + '</em>' + 
+        return ('<li><strong>' + entry.name + '</strong> submitted <em>'+entry.levelName + ' </em> for review ' + 
         '<span class="meta">Video: <a href="' + entry.video + '" target="_blank" rel="noopener">' +
         entry.video + '</a>' +
         (entry.country ? ' - ' + entry.country : '') +
         (entry.startPositionId ? ' - Start Pos ID: ' + entry.startPositionId : '') +
         ' - submitted ' + entry.date +
         '</span></li>');
-    }).join();
+    }).join("");
 
 }
 
